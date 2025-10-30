@@ -8,7 +8,7 @@ import { BehaviorSubject, catchError, map, of } from 'rxjs';
 })
 export class AuthService {
   // 🔧 .NET backend endpoint
-  private apiUrl = 'http://localhost:3001/api/login';
+  private apiUrl = 'http://localhost:3001/auth/login';
 
   private _user$ = new BehaviorSubject<{ name: string; email: string } | null>(null);
   user$ = this._user$.asObservable();
