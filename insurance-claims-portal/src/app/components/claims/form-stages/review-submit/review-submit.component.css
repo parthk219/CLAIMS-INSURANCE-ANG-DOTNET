@@ -1,0 +1,31 @@
+.review-container {
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fafafa;
+  max-width: 500px;
+  margin: 1rem auto;
+}
+
+.actions {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+button {
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+button:first-child {
+  background: #ccc;
+}
+
+button:last-child {
+  background: #28a745;
+  color: white;
+}

@@ -1,7 +1,5 @@
-<div class="multi-stage-container">
-  <h2>Insurance Claim Form</h2>
-
-  <ng-container [ngSwitch]="stage">
+<div class="stage-container">
+  <ng-container [ngSwitch]="currentStage">
     <app-primary-details
       *ngSwitchCase="1"
       [data]="primaryData"
@@ -14,5 +12,13 @@
       (next)="handleNext($event)"
       (back)="handleBack()">
     </app-documents>
+
+    <app-review-submit
+      *ngSwitchCase="3"
+      [primaryData]="primaryData"
+      [documentsData]="documentsData"
+      (back)="handleBack()"
+      (submitClaim)="handleSubmit()">
+    </app-review-submit>
   </ng-container>
 </div>

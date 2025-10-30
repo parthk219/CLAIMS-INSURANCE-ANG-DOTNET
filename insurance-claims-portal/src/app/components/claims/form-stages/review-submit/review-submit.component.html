@@ -1,0 +1,21 @@
+<div class="review-container">
+  <h2>Review Your Claim</h2>
+
+  <section>
+    <h4>Primary Details</h4>
+    <p><strong>Name:</strong> {{ primaryData?.name }}</p>
+    <p><strong>Policy Number:</strong> {{ primaryData?.policyNumber }}</p>
+    <p><strong>Date of Incident:</strong> {{ primaryData?.dateOfIncident }}</p>
+  </section>
+
+  <section>
+    <h4>Documents</h4>
+    <p><strong>Incident Details:</strong> {{ documentsData?.incidentDetails }}</p>
+    <p><strong>Uploaded File:</strong> {{ documentsData?.documents?.name }}</p>
+  </section>
+
+  <div class="actions">
+    <button (click)="goBack()">⬅ Back</button>
+    <button (click)="submit()">✅ Submit</button>
+  </div>
+</div>
