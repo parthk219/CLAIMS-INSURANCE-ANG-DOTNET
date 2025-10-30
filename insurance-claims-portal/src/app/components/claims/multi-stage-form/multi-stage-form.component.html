@@ -1,11 +1,18 @@
 <div class="multi-stage-container">
-  <h2>Multi Stage Claim Form</h2>
+  <h2>Insurance Claim Form</h2>
 
-  <ng-container *ngIf="stage === 1">
-    <app-primary-details [data]="primaryData" (next)="handleNext($event)"></app-primary-details>
-  </ng-container>
+  <ng-container [ngSwitch]="stage">
+    <app-primary-details
+      *ngSwitchCase="1"
+      [data]="primaryData"
+      (next)="handleNext($event)">
+    </app-primary-details>
 
-  <ng-container *ngIf="stage === 2">
-    <p>Next stage coming soon...</p>
+    <app-documents
+      *ngSwitchCase="2"
+      [data]="documentsData"
+      (next)="handleNext($event)"
+      (back)="handleBack()">
+    </app-documents>
   </ng-container>
 </div>

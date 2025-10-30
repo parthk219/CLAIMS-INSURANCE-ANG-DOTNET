@@ -1,0 +1,40 @@
+<div class="documents-container">
+  <h3 class="title">Incident & Documents</h3>
+
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <!-- Incident Description -->
+    <div class="form-group">
+      <label for="incidentDetails">Incident Details</label>
+      <textarea
+        id="incidentDetails"
+        class="form-control"
+        rows="4"
+        placeholder="Describe what happened"
+        formControlName="incidentDetails"
+      ></textarea>
+      <div class="error" *ngIf="incidentDetails?.touched && incidentDetails?.invalid">
+        Please describe the incident.
+      </div>
+    </div>
+
+    <!-- File Upload -->
+    <div class="form-group">
+      <label for="documents">Upload Supporting Documents</label>
+      <input
+        id="documents"
+        type="file"
+        class="form-control"
+        (change)="handleFileChange($event)"
+      />
+      <div class="error" *ngIf="form.get('documents')?.touched && form.get('documents')?.invalid">
+        Please upload a document.
+      </div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="btn-group">
+      <button type="button" class="btn-back" (click)="goBack()">⬅ Back</button>
+      <button type="submit" class="btn-next" [disabled]="form.invalid">Next ➡</button>
+    </div>
+  </form>
+</div>
