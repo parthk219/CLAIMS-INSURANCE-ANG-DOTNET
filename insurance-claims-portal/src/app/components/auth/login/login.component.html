@@ -1,0 +1,29 @@
+<div class="login-page">
+  <div class="login-card">
+    <h2>Insurance Claims Portal</h2>
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <label>
+        Email
+        <input type="email" formControlName="email" placeholder="you@example.com" />
+      </label>
+      <div class="error" *ngIf="email?.touched && email?.invalid">
+        <small *ngIf="email?.errors?.['required']">Email is required</small>
+        <small *ngIf="email?.errors?.['email']">Enter valid email</small>
+      </div>
+
+      <label>
+        Password
+        <input type="password" formControlName="password" placeholder="password" />
+      </label>
+      <div class="error" *ngIf="password?.touched && password?.invalid">
+        <small *ngIf="password?.errors?.['required']">Password required</small>
+        <small *ngIf="password?.errors?.['minlength']">Minimum 6 characters</small>
+      </div>
+
+      <button type="submit" [disabled]="loading">{{ loading ? 'Logging in...' : 'Login' }}</button>
+
+      <div class="server-error" *ngIf="serverError">{{ serverError }}</div>
+    </form>
+  </div>
+</div>
