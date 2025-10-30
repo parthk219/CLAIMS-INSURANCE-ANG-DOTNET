@@ -1,0 +1,11 @@
+<div class="multi-stage-container">
+  <h2>Multi Stage Claim Form</h2>
+
+  <ng-container *ngIf="stage === 1">
+    <app-primary-details [data]="primaryData" (next)="handleNext($event)"></app-primary-details>
+  </ng-container>
+
+  <ng-container *ngIf="stage === 2">
+    <p>Next stage coming soon...</p>
+  </ng-container>
+</div>

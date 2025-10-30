@@ -1,1 +1,13 @@
-<p>claims-dashboard works!</p>
+<div class="dashboard-container">
+  <header class="dashboard-header">
+    <h2>Welcome, {{ user?.email }}</h2>
+    <div class="right">
+      <span>Claims Submitted: {{ claimsCount }}</span>
+      <button (click)="logout()">Logout</button>
+    </div>
+  </header>
+
+  <main>
+    <app-multi-stage-form (formSubmitted)="onClaimSubmitted()"></app-multi-stage-form>
+  </main>
+</div>
