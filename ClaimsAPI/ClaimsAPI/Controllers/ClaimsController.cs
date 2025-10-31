@@ -54,7 +54,7 @@ namespace ClaimsAPI.Controllers
                 });
             }
         }
-
+        //testcomment
         [HttpGet]
         public async Task<IActionResult> GetUserClaims()
         {
