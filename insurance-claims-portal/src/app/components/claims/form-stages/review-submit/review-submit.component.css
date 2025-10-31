@@ -1,10 +1,13 @@
 .review-container {
-  padding: 1rem;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  background: #fafafa;
-  max-width: 500px;
-  margin: 1rem auto;
+width: 100%;
+  max-width: 600px; /* या 800px अगर wider चाहिए */
+  min-width: 400px;
+  margin: 30px auto;
+  padding: 25px 30px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
 }
 
 .actions {
