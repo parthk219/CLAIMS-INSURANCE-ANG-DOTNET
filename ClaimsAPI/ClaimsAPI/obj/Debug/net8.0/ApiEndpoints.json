@@ -1,14 +1,77 @@
 [
   {
+    "ContainingType": "ClaimsAPI.Controllers.AuthController",
+    "Method": "Login",
+    "RelativePath": "Auth/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "ClaimsAPI.Models.LoginRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ClaimsAPI.Controllers.AuthController",
+    "Method": "Register",
+    "RelativePath": "Auth/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "ClaimsAPI.Models.LoginRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "ClaimsAPI.Controllers.ClaimsController",
-    "Method": "GetClaimStatus",
-    "RelativePath": "api/claims/{claimId}/status",
+    "Method": "GetUserClaims",
+    "RelativePath": "Claims",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ClaimsAPI.Controllers.ClaimsController",
+    "Method": "GetClaimById",
+    "RelativePath": "Claims/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "claimId",
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ClaimsAPI.Controllers.ClaimsController",
+    "Method": "UpdateClaimStatus",
+    "RelativePath": "Claims/{id}/status",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "status",
         "Type": "System.String",
         "IsRequired": true
       }
@@ -18,14 +81,14 @@
   {
     "ContainingType": "ClaimsAPI.Controllers.ClaimsController",
     "Method": "SubmitClaim",
-    "RelativePath": "api/claims/submit",
+    "RelativePath": "Claims/submit",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "claimModel",
-        "Type": "ClaimsAPI.Model.ClaimModel",
+        "Name": "request",
+        "Type": "ClaimsAPI.Models.SubmitClaimRequest",
         "IsRequired": true
       }
     ],
@@ -33,8 +96,18 @@
   },
   {
     "ContainingType": "ClaimsAPI.Controllers.ClaimsController",
+    "Method": "GetClaimsSummary",
+    "RelativePath": "Claims/summary",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ClaimsAPI.Controllers.ClaimsController",
     "Method": "UploadFiles",
-    "RelativePath": "api/claims/upload",
+    "RelativePath": "Claims/upload",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -43,22 +116,6 @@
         "Name": "files",
         "Type": "System.Collections.Generic.List\u00601[[Microsoft.AspNetCore.Http.IFormFile, Microsoft.AspNetCore.Http.Features, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]",
         "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "ClaimsAPI.Controllers.AuthController",
-    "Method": "Login",
-    "RelativePath": "auth/login",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "request",
-        "Type": "ClaimsAPI.Login.LoginRequest",
-        "IsRequired": true
       }
     ],
     "ReturnTypes": []

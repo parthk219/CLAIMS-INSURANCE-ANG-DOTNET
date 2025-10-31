@@ -1,95 +1,68 @@
+﻿using Microsoft.EntityFrameworkCore;
+using ClaimsAPI.Data;
+using ClaimsAPI.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.OpenApi.Models;
-using ClaimsAPI.DbContext;
-using System.Text;
 using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container
 builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
-// Configure DbContext
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseInMemoryDatabase("ClaimsDb"));
+    options.UseInMemoryDatabase("ClaimsInMemoryDB"));
 
-// Configure JWT Authentication
+builder.Services.AddScoped<ITokenService, TokenService>();
+
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
+        var jwtKey = builder.Configuration["Jwt:Key"] ?? "YourSuperSecretKeyForTesting12345";
+        var jwtIssuer = builder.Configuration["Jwt:Issuer"] ?? "ClaimsAPI";
+        var jwtAudience = builder.Configuration["Jwt:Audience"] ?? "AngularClient";
+
         options.TokenValidationParameters = new TokenValidationParameters
         {
             ValidateIssuer = true,
             ValidateAudience = true,
             ValidateLifetime = true,
             ValidateIssuerSigningKey = true,
-            ValidIssuer = builder.Configuration["Jwt:Issuer"],
-            ValidAudience = builder.Configuration["Jwt:Issuer"], // Same as issuer for simplicity
-            IssuerSigningKey = new SymmetricSecurityKey(
-                Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
+            ValidIssuer = jwtIssuer,
+            ValidAudience = jwtAudience,
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey)),
+            NameClaimType = "email"
         };
     });
 
-// Configure Swagger
-builder.Services.AddSwaggerGen(options =>
-{
-    options.SwaggerDoc("v1", new OpenApiInfo { Title = "Claims API", Version = "v1" });
+// ✅ Authorization (after Authentication)
+builder.Services.AddAuthorization();
 
-    var jwtSecurityScheme = new OpenApiSecurityScheme
-    {
-        BearerFormat = "JWT",
-        Name = "Authorization",
-        In = ParameterLocation.Header,
-        Type = SecuritySchemeType.Http,
-        Scheme = JwtBearerDefaults.AuthenticationScheme,
-        Description = "Enter your JWT token in format: Bearer {token}",
-        Reference = new OpenApiReference
-        {
-            Id = JwtBearerDefaults.AuthenticationScheme,
-            Type = ReferenceType.SecurityScheme
-        }
-    };
-
-    options.AddSecurityDefinition(jwtSecurityScheme.Reference.Id, jwtSecurityScheme);
-    options.AddSecurityRequirement(new OpenApiSecurityRequirement
-    {
-        { jwtSecurityScheme, Array.Empty<string>() }
-    });
-});
-
-// Configure CORS
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAll", policy =>
+    options.AddPolicy("AllowAngular", policy =>
     {
-        policy.AllowAnyOrigin()
+        policy.WithOrigins("http://localhost:4200")
+              .AllowAnyHeader()
               .AllowAnyMethod()
-              .AllowAnyHeader();
+              .AllowCredentials();
     });
 });
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline
+// ✅ Development only — Swagger
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI(c =>
-    {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "Claims API v1");
-        c.ConfigObject.AdditionalItems["syntaxHighlight"] = new Dictionary<string, object>
-        {
-            ["activated"] = false
-        };
-    });
+    app.UseSwaggerUI();
 }
 
-app.UseCors("AllowAll");
-
-app.UseAuthentication();
-app.UseAuthorization();
-
-app.MapControllers();
+// ✅ Order is important here:
+app.UseCors("AllowAngular");         
+app.UseAuthentication();             
+app.UseAuthorization();              
+app.MapControllers();                
 
 app.Run();

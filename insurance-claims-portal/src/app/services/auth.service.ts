@@ -7,7 +7,7 @@ import { BehaviorSubject, catchError, map, of } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-  // 🔧 .NET backend endpoint
+
   private apiUrl = 'http://localhost:3001/auth/login';
 
   private _user$ = new BehaviorSubject<{ name: string; email: string } | null>(null);
@@ -16,6 +16,8 @@ export class AuthService {
   constructor(private http: HttpClient, private router: Router) {
     const token = localStorage.getItem('token');
     const user = localStorage.getItem('user');
+    const email = localStorage.getItem('userEmail');
+
 
     if (token && user) {
       try {
@@ -38,6 +40,7 @@ export class AuthService {
           };
 
           localStorage.setItem('token', res.token);
+          localStorage.setItem('userEmail', res.email); // ✅ Save email here
           localStorage.setItem('user', JSON.stringify(user));
           this._user$.next(user);
           return res;

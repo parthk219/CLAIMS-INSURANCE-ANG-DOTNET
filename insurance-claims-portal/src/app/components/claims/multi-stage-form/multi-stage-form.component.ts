@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PrimaryDetailsComponent } from '../form-stages/primary-details/primary-details.component';
 import { DocumentsComponent } from '../form-stages/documents/documents.component';
-import { ReviewSubmitComponent } from '../form-stages/review-submit/review-submit.component'; // ✅ Correct import
+import { ReviewSubmitComponent } from '../form-stages/review-submit/review-submit.component';
+import { ClaimService } from '../../../services/claims.service';
 
 @Component({
   selector: 'app-multi-stage-form',
@@ -12,9 +13,13 @@ import { ReviewSubmitComponent } from '../form-stages/review-submit/review-submi
   styleUrls: ['./multi-stage-form.component.css']
 })
 export class MultiStageFormComponent {
+  @Output() formSubmitted = new EventEmitter<void>();
+
   currentStage = 1;
   primaryData: any = {};
   documentsData: any = {};
+
+  constructor(private claimsService: ClaimService) {}
 
   handleNext(data: any) {
     if (this.currentStage === 1) this.primaryData = data;
@@ -27,6 +32,22 @@ export class MultiStageFormComponent {
   }
 
   handleSubmit() {
-    alert('✅ Claim submitted successfully!');
+    const claimData = {
+      primaryDetails: this.primaryData,
+      documents: this.documentsData
+    };
+
+    // ✅ Send data to backend API
+    this.claimsService.submitClaim(claimData).subscribe({
+      next: (res) => {
+        alert('✅ 1 Claim submitted successfully!');
+        this.formSubmitted.emit();
+        this.currentStage = 1; // Reset form
+      },
+      error: (err) => {
+        console.error('Error submitting claim:', err);
+        alert('❌ Failed to submit claim');
+      }
+    });
   }
 }

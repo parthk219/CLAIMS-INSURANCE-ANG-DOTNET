@@ -9,5 +9,30 @@
 
   <main>
     <app-multi-stage-form (formSubmitted)="onClaimSubmitted()"></app-multi-stage-form>
+
+    <section class="claims-list" *ngIf="!loading">
+      <h3>Your Recent Claims</h3>
+
+      <table *ngIf="recentClaims.length > 0; else noClaims">
+        <tr>
+          <th>Name</th>
+          <th>Policy #</th>
+          <th>Date of Incident</th>
+          <th>Status</th>
+        </tr>
+        <tr *ngFor="let claim of recentClaims">
+          <td>{{ claim.name }}</td>
+          <td>{{ claim.policyNumber }}</td>
+          <td>{{ claim.dateOfIncident | date }}</td>
+          <td>{{ claim.status }}</td>
+        </tr>
+      </table>
+
+      <ng-template #noClaims>
+        <p>No claims submitted yet.</p>
+      </ng-template>
+    </section>
+
+    <p *ngIf="loading">Loading claims...</p>
   </main>
 </div>

@@ -1,28 +1,122 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using ClaimsAPI.Model;
-using ClaimsAPI.DbContext;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
-using Microsoft.IdentityModel.Tokens;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using System.Security.Claims;
+using ClaimsAPI.Models;
+using ClaimsAPI.Data;
 
 namespace ClaimsAPI.Controllers
 {
     [ApiController]
-    [Route("api/claims")]
-    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    [Route("[controller]")]
+    [AllowAnonymous]
     public class ClaimsController : ControllerBase
     {
         private readonly AppDbContext _context;
-        private readonly IConfiguration _configuration;
 
-        public ClaimsController(AppDbContext context, IConfiguration configuration)
+        public ClaimsController(AppDbContext context)
         {
             _context = context;
-            _configuration = configuration;
+        }
+
+        [HttpGet("summary")]
+        public async Task<IActionResult> GetClaimsSummary()
+        {
+            try
+            {
+                var email = GetUserEmail();
+                if (string.IsNullOrEmpty(email))
+                    return Unauthorized(new { success = false, message = "Invalid token" });
+
+                var claimsCount = await _context.Claims.CountAsync(c => c.Email == email);
+                var recentClaims = await _context.Claims
+                    .Where(c => c.Email == email)
+                    .OrderByDescending(c => c.SubmittedDate)
+                    .Take(5)
+                    .ToListAsync();
+
+                return Ok(new
+                {
+                    success = true,
+                    email = email,
+                    claimsSubmitted = claimsCount,
+                    recentClaims = recentClaims
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new
+                {
+                    success = false,
+                    message = $"Error: {ex.Message}"
+                });
+            }
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetUserClaims()
+        {
+            try
+            {
+                var email = GetUserEmail();
+                if (string.IsNullOrEmpty(email))
+                    return Unauthorized(new { success = false, message = "Invalid token" });
+
+                var claims = await _context.Claims
+                    .Where(c => c.Email == email)
+                    .OrderByDescending(c => c.SubmittedDate)
+                    .ToListAsync();
+
+                var claimsCount = await _context.Claims.CountAsync(c => c.Email == email);
+
+                return Ok(new
+                {
+                    success = true,
+                    claims = claims,
+                    totalCount = claimsCount
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new
+                {
+                    success = false,
+                    message = $"Error: {ex.Message}"
+                });
+            }
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetClaimById(string id)
+        {
+            try
+            {
+                var email = GetUserEmail();
+                if (string.IsNullOrEmpty(email))
+                    return Unauthorized(new { success = false, message = "Invalid token" });
+
+                var claim = await _context.Claims
+                    .FirstOrDefaultAsync(c => c.Id == id && c.Email == email);
+
+                if (claim == null)
+                    return NotFound(new { success = false, message = "Claim not found" });
+
+                return Ok(new
+                {
+                    success = true,
+                    claim = claim
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new
+                {
+                    success = false,
+                    message = $"Error: {ex.Message}"
+                });
+            }
         }
 
         [HttpPost("upload")]
@@ -30,101 +124,146 @@ namespace ClaimsAPI.Controllers
         {
             try
             {
-                var uploadPath = Path.Combine(Directory.GetCurrentDirectory(), "Uploads");
+                var email = GetUserEmail();
+                if (string.IsNullOrEmpty(email))
+                    return Unauthorized(new { success = false, message = "Invalid token" });
+
+                var uploadPath = Path.Combine(Directory.GetCurrentDirectory(), "Uploads", email);
                 Directory.CreateDirectory(uploadPath);
+
+                var fileNames = new List<string>();
 
                 foreach (var file in files)
                 {
-                    var filePath = Path.Combine(uploadPath, file.FileName);
+                    var fileName = $"{Guid.NewGuid()}_{file.FileName}";
+                    var filePath = Path.Combine(uploadPath, fileName);
+
                     using var stream = new FileStream(filePath, FileMode.Create);
                     await file.CopyToAsync(stream);
+
+                    fileNames.Add(fileName);
                 }
 
-                return Ok(new { message = "Files uploaded successfully." });
+                return Ok(new
+                {
+                    success = true,
+                    message = "Files uploaded successfully",
+                    fileNames = fileNames,
+                    count = fileNames.Count
+                });
             }
             catch (Exception ex)
             {
-                return StatusCode(500, $"Internal server error: {ex.Message}");
+                return StatusCode(500, new
+                {
+                    success = false,
+                    message = $"Upload error: {ex.Message}"
+                });
             }
         }
 
         [HttpPost("submit")]
-        public async Task<IActionResult> SubmitClaim([FromBody] ClaimModel claimModel)
+        public async Task<IActionResult> SubmitClaim([FromBody] SubmitClaimRequest request)
         {
-            if (claimModel == null)
-                return BadRequest("Invalid claim data.");
-
-            // Set system-generated fields
-            claimModel.Id = Guid.NewGuid().ToString();
-            claimModel.Status = "Submitted";
+            if (request == null)
+                return BadRequest(new { success = false, message = "Invalid claim data" });
 
             try
             {
+                var email = GetUserEmail();
+                if (string.IsNullOrEmpty(email))
+                    return Unauthorized(new { success = false, message = "Invalid token" });
+
+                // Get user's current claims count
+                var userClaimsCount = await _context.Claims.CountAsync(c => c.Email == email);
+
+                var claimModel = new ClaimModel
+                {
+                    Id = Guid.NewGuid().ToString(),
+                    Email = email,
+                    Name = request.Name,
+                    PolicyNumber = request.PolicyNumber,
+                    DateOfIncident = request.DateOfIncident,
+                    IncidentDetails = request.IncidentDetails,
+                    UploadedFileName = request.UploadedFileName,
+                    SubmittedDate = DateTime.UtcNow,
+                    Status = "Submitted",
+                    LastUpdated = DateTime.UtcNow,
+                    ClaimsCount = userClaimsCount + 1
+                };
+
+                // Update user's total claims count
+                var user = await _context.Users.FindAsync(email);
+                if (user != null)
+                {
+                    user.TotalClaimsSubmitted++;
+                    user.LastLogin = DateTime.UtcNow;
+                }
+
                 _context.Claims.Add(claimModel);
                 await _context.SaveChangesAsync();
 
-                var token = GenerateJwtToken(claimModel.Id);
-
                 return Ok(new
                 {
-                    Claim = claimModel,
-                    Token = token,
-                    Message = "Claim submitted successfully"
+                    success = true,
+                    claim = claimModel,
+                    message = "Claim submitted successfully",
+                    totalClaimsSubmitted = claimModel.ClaimsCount
                 });
             }
             catch (Exception ex)
             {
-                return Problem(
-                    detail: ex.Message,
-                    statusCode: 500,
-                    title: "An error occurred while submitting the claim."
-                );
+                return StatusCode(500, new
+                {
+                    success = false,
+                    message = $"Submission error: {ex.Message}"
+                });
             }
         }
 
-        [HttpGet("{claimId}/status")]
-        public async Task<IActionResult> GetClaimStatus(string claimId)
+        [HttpPut("{id}/status")]
+        public async Task<IActionResult> UpdateClaimStatus(string id, [FromBody] string status)
         {
             try
             {
-                var claim = await _context.Claims.FindAsync(claimId);
+                var email = GetUserEmail();
+                if (string.IsNullOrEmpty(email))
+                    return Unauthorized(new { success = false, message = "Invalid token" });
+
+                var claim = await _context.Claims
+                    .FirstOrDefaultAsync(c => c.Id == id && c.Email == email);
+
                 if (claim == null)
-                    return NotFound(new { message = "Claim not found" });
+                    return NotFound(new { success = false, message = "Claim not found" });
+
+                claim.Status = status;
+                claim.LastUpdated = DateTime.UtcNow;
+
+                await _context.SaveChangesAsync();
 
                 return Ok(new
                 {
-                    Status = claim.Status,
-                  //  LastUpdated = claim.ModifiedDate ?? claim.CreatedDate
+                    success = true,
+                    message = "Claim status updated successfully",
+                    claimId = claim.Id,
+                    newStatus = claim.Status
                 });
             }
             catch (Exception ex)
             {
-                return StatusCode(500, $"Error retrieving claim status: {ex.Message}");
+                return StatusCode(500, new
+                {
+                    success = false,
+                    message = $"Error: {ex.Message}"
+                });
             }
         }
 
-        private string GenerateJwtToken(string claimId)
+        private string? GetUserEmail()
         {
-            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(
-                _configuration["Jwt:Key"]));
-            var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
-
-            var claims = new[]
-            {
-                new Claim(JwtRegisteredClaimNames.Sub, claimId),
-                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                new Claim(ClaimTypes.Role, "User") // Default role
-            };
-
-            var token = new JwtSecurityToken(
-                issuer: _configuration["Jwt:Issuer"],
-                audience: _configuration["Jwt:Audience"],
-                claims: claims,
-                expires: DateTime.Now.AddHours(1),
-                signingCredentials: credentials
-            );
-
-            return new JwtSecurityTokenHandler().WriteToken(token);
+            return User.FindFirst(ClaimTypes.Email)?.Value ??
+                   User.FindFirst("email")?.Value ??
+                   User.Identity?.Name;
         }
     }
 }

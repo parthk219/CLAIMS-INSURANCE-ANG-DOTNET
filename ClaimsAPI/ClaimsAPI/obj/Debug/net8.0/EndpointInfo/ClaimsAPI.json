@@ -1,11 +1,11 @@
 {
   "openapi": "3.0.4",
   "info": {
-    "title": "Claims API",
-    "version": "v1"
+    "title": "ClaimsAPI",
+    "version": "1.0"
   },
   "paths": {
-    "/auth/login": {
+    "/Auth/login": {
       "post": {
         "tags": [
           "Auth"
@@ -36,7 +36,84 @@
         }
       }
     },
-    "/api/claims/upload": {
+    "/Auth/register": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/Claims/summary": {
+      "get": {
+        "tags": [
+          "Claims"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/Claims": {
+      "get": {
+        "tags": [
+          "Claims"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/Claims/{id}": {
+      "get": {
+        "tags": [
+          "Claims"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/Claims/upload": {
       "post": {
         "tags": [
           "Claims"
@@ -71,7 +148,7 @@
         }
       }
     },
-    "/api/claims/submit": {
+    "/Claims/submit": {
       "post": {
         "tags": [
           "Claims"
@@ -80,17 +157,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ClaimModel"
+                "$ref": "#/components/schemas/SubmitClaimRequest"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/ClaimModel"
+                "$ref": "#/components/schemas/SubmitClaimRequest"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/ClaimModel"
+                "$ref": "#/components/schemas/SubmitClaimRequest"
               }
             }
           }
@@ -102,14 +179,14 @@
         }
       }
     },
-    "/api/claims/{claimId}/status": {
-      "get": {
+    "/Claims/{id}/status": {
+      "put": {
         "tags": [
           "Claims"
         ],
         "parameters": [
           {
-            "name": "claimId",
+            "name": "id",
             "in": "path",
             "required": true,
             "schema": {
@@ -117,6 +194,25 @@
             }
           }
         ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "string"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "string"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "OK"
@@ -127,52 +223,18 @@
   },
   "components": {
     "schemas": {
-      "ClaimModel": {
+      "LoginRequest": {
+        "required": [
+          "email"
+        ],
         "type": "object",
         "properties": {
-          "id": {
+          "email": {
+            "minLength": 1,
             "type": "string",
-            "nullable": true
+            "format": "email"
           },
           "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "email": {
-            "type": "string",
-            "nullable": true
-          },
-          "policyNumber": {
-            "type": "string",
-            "nullable": true
-          },
-          "type": {
-            "type": "string",
-            "nullable": true
-          },
-          "location": {
-            "type": "string",
-            "nullable": true
-          },
-          "description": {
-            "type": "string",
-            "nullable": true
-          },
-          "dateOfIncident": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "status": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "LoginRequest": {
-        "type": "object",
-        "properties": {
-          "email": {
             "type": "string",
             "nullable": true
           },
@@ -182,20 +244,33 @@
           }
         },
         "additionalProperties": false
-      }
-    },
-    "securitySchemes": {
-      "Bearer": {
-        "type": "http",
-        "description": "Enter your JWT token in format: Bearer {token}",
-        "scheme": "Bearer",
-        "bearerFormat": "JWT"
+      },
+      "SubmitClaimRequest": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "policyNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "dateOfIncident": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "incidentDetails": {
+            "type": "string",
+            "nullable": true
+          },
+          "uploadedFileName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
       }
     }
-  },
-  "security": [
-    {
-      "Bearer": [ ]
-    }
-  ]
+  }
 }

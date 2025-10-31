@@ -3,44 +3,40 @@
   "WorkspaceRootPath": "D:\\vid\\github\\CLAIMS-INSURANCE-ANG-DOTNET\\CLAIMS-INSURANCE-ANG-DOTNET\\ClaimsAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{AF47AEC8-8A09-45FA-A523-D12CCB0E6A09}|ClaimsAPI\\ClaimsAPI.csproj|d:\\vid\\github\\claims-insurance-ang-dotnet\\claims-insurance-ang-dotnet\\claimsapi\\claimsapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AF47AEC8-8A09-45FA-A523-D12CCB0E6A09}|ClaimsAPI\\ClaimsAPI.csproj|solutionrelative:claimsapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{AF47AEC8-8A09-45FA-A523-D12CCB0E6A09}|ClaimsAPI\\ClaimsAPI.csproj|d:\\vid\\github\\claims-insurance-ang-dotnet\\claims-insurance-ang-dotnet\\claimsapi\\claimsapi\\controllers\\claimscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AF47AEC8-8A09-45FA-A523-D12CCB0E6A09}|ClaimsAPI\\ClaimsAPI.csproj|solutionrelative:claimsapi\\controllers\\claimscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AF47AEC8-8A09-45FA-A523-D12CCB0E6A09}|ClaimsAPI\\ClaimsAPI.csproj|d:\\vid\\github\\claims-insurance-ang-dotnet\\claims-insurance-ang-dotnet\\claimsapi\\claimsapi\\model\\claimmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AF47AEC8-8A09-45FA-A523-D12CCB0E6A09}|ClaimsAPI\\ClaimsAPI.csproj|solutionrelative:claimsapi\\model\\claimmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AF47AEC8-8A09-45FA-A523-D12CCB0E6A09}|ClaimsAPI\\ClaimsAPI.csproj|d:\\vid\\github\\claims-insurance-ang-dotnet\\claims-insurance-ang-dotnet\\claimsapi\\claimsapi\\claimsapi.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
-      "RelativeMoniker": "D:0:0:{AF47AEC8-8A09-45FA-A523-D12CCB0E6A09}|ClaimsAPI\\ClaimsAPI.csproj|solutionrelative:claimsapi\\claimsapi.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AF47AEC8-8A09-45FA-A523-D12CCB0E6A09}|ClaimsAPI\\ClaimsAPI.csproj|d:\\vid\\github\\claims-insurance-ang-dotnet\\claims-insurance-ang-dotnet\\claimsapi\\claimsapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{AF47AEC8-8A09-45FA-A523-D12CCB0E6A09}|ClaimsAPI\\ClaimsAPI.csproj|solutionrelative:claimsapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AF47AEC8-8A09-45FA-A523-D12CCB0E6A09}|ClaimsAPI\\ClaimsAPI.csproj|d:\\vid\\github\\claims-insurance-ang-dotnet\\claims-insurance-ang-dotnet\\claimsapi\\claimsapi\\dbcontext\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AF47AEC8-8A09-45FA-A523-D12CCB0E6A09}|ClaimsAPI\\ClaimsAPI.csproj|solutionrelative:claimsapi\\dbcontext\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AF47AEC8-8A09-45FA-A523-D12CCB0E6A09}|ClaimsAPI\\ClaimsAPI.csproj|d:\\vid\\github\\claims-insurance-ang-dotnet\\claims-insurance-ang-dotnet\\claimsapi\\claimsapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AF47AEC8-8A09-45FA-A523-D12CCB0E6A09}|ClaimsAPI\\ClaimsAPI.csproj|solutionrelative:claimsapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AF47AEC8-8A09-45FA-A523-D12CCB0E6A09}|ClaimsAPI\\ClaimsAPI.csproj|d:\\vid\\github\\claims-insurance-ang-dotnet\\claims-insurance-ang-dotnet\\claimsapi\\claimsapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{AF47AEC8-8A09-45FA-A523-D12CCB0E6A09}|ClaimsAPI\\ClaimsAPI.csproj|solutionrelative:claimsapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{AF47AEC8-8A09-45FA-A523-D12CCB0E6A09}|ClaimsAPI\\ClaimsAPI.csproj|d:\\vid\\github\\claims-insurance-ang-dotnet\\claims-insurance-ang-dotnet\\claimsapi\\claimsapi\\dbcontext\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF47AEC8-8A09-45FA-A523-D12CCB0E6A09}|ClaimsAPI\\ClaimsAPI.csproj|solutionrelative:claimsapi\\dbcontext\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AF47AEC8-8A09-45FA-A523-D12CCB0E6A09}|ClaimsAPI\\ClaimsAPI.csproj|d:\\vid\\github\\claims-insurance-ang-dotnet\\claims-insurance-ang-dotnet\\claimsapi\\claimsapi\\login\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AF47AEC8-8A09-45FA-A523-D12CCB0E6A09}|ClaimsAPI\\ClaimsAPI.csproj|solutionrelative:claimsapi\\login\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{AF47AEC8-8A09-45FA-A523-D12CCB0E6A09}|ClaimsAPI\\ClaimsAPI.csproj|d:\\vid\\github\\claims-insurance-ang-dotnet\\claims-insurance-ang-dotnet\\claimsapi\\claimsapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF47AEC8-8A09-45FA-A523-D12CCB0E6A09}|ClaimsAPI\\ClaimsAPI.csproj|solutionrelative:claimsapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AF47AEC8-8A09-45FA-A523-D12CCB0E6A09}|ClaimsAPI\\ClaimsAPI.csproj|d:\\vid\\github\\claims-insurance-ang-dotnet\\claims-insurance-ang-dotnet\\claimsapi\\claimsapi\\login\\loginrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{AF47AEC8-8A09-45FA-A523-D12CCB0E6A09}|ClaimsAPI\\ClaimsAPI.csproj|solutionrelative:claimsapi\\login\\loginrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF47AEC8-8A09-45FA-A523-D12CCB0E6A09}|ClaimsAPI\\ClaimsAPI.csproj|d:\\vid\\github\\claims-insurance-ang-dotnet\\claims-insurance-ang-dotnet\\claimsapi\\claimsapi\\model\\claimmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF47AEC8-8A09-45FA-A523-D12CCB0E6A09}|ClaimsAPI\\ClaimsAPI.csproj|solutionrelative:claimsapi\\model\\claimmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF47AEC8-8A09-45FA-A523-D12CCB0E6A09}|ClaimsAPI\\ClaimsAPI.csproj|d:\\vid\\github\\claims-insurance-ang-dotnet\\claims-insurance-ang-dotnet\\claimsapi\\claimsapi\\services\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF47AEC8-8A09-45FA-A523-D12CCB0E6A09}|ClaimsAPI\\ClaimsAPI.csproj|solutionrelative:claimsapi\\services\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF47AEC8-8A09-45FA-A523-D12CCB0E6A09}|ClaimsAPI\\ClaimsAPI.csproj|d:\\vid\\github\\claims-insurance-ang-dotnet\\claims-insurance-ang-dotnet\\claimsapi\\claimsapi\\model\\usermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF47AEC8-8A09-45FA-A523-D12CCB0E6A09}|ClaimsAPI\\ClaimsAPI.csproj|solutionrelative:claimsapi\\model\\usermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF47AEC8-8A09-45FA-A523-D12CCB0E6A09}|ClaimsAPI\\ClaimsAPI.csproj|d:\\vid\\github\\claims-insurance-ang-dotnet\\claims-insurance-ang-dotnet\\claimsapi\\claimsapi\\services\\itokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AF47AEC8-8A09-45FA-A523-D12CCB0E6A09}|ClaimsAPI\\ClaimsAPI.csproj|solutionrelative:claimsapi\\services\\itokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{AF47AEC8-8A09-45FA-A523-D12CCB0E6A09}|ClaimsAPI\\ClaimsAPI.csproj|d:\\vid\\github\\claims-insurance-ang-dotnet\\claims-insurance-ang-dotnet\\claimsapi\\claimsapi\\claimsapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
@@ -54,140 +50,129 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ClaimsAPI.http",
-              "DocumentMoniker": "D:\\vid\\github\\CLAIMS-INSURANCE-ANG-DOTNET\\CLAIMS-INSURANCE-ANG-DOTNET\\ClaimsAPI\\ClaimsAPI\\ClaimsAPI.http",
-              "RelativeDocumentMoniker": "ClaimsAPI\\ClaimsAPI.http",
-              "ToolTip": "D:\\vid\\github\\CLAIMS-INSURANCE-ANG-DOTNET\\CLAIMS-INSURANCE-ANG-DOTNET\\ClaimsAPI\\ClaimsAPI\\ClaimsAPI.http",
-              "RelativeToolTip": "ClaimsAPI\\ClaimsAPI.http",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
-              "WhenOpened": "2025-09-27T14:42:32.484Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\vid\\github\\CLAIMS-INSURANCE-ANG-DOTNET\\CLAIMS-INSURANCE-ANG-DOTNET\\ClaimsAPI\\ClaimsAPI\\Program.cs",
-              "RelativeDocumentMoniker": "ClaimsAPI\\Program.cs",
-              "ToolTip": "D:\\vid\\github\\CLAIMS-INSURANCE-ANG-DOTNET\\CLAIMS-INSURANCE-ANG-DOTNET\\ClaimsAPI\\ClaimsAPI\\Program.cs",
-              "RelativeToolTip": "ClaimsAPI\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-28T18:00:26.604Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "D:\\vid\\github\\CLAIMS-INSURANCE-ANG-DOTNET\\CLAIMS-INSURANCE-ANG-DOTNET\\ClaimsAPI\\ClaimsAPI\\appsettings.json",
-              "RelativeDocumentMoniker": "ClaimsAPI\\appsettings.json",
-              "ToolTip": "D:\\vid\\github\\CLAIMS-INSURANCE-ANG-DOTNET\\CLAIMS-INSURANCE-ANG-DOTNET\\ClaimsAPI\\ClaimsAPI\\appsettings.json",
-              "RelativeToolTip": "ClaimsAPI\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-06-28T17:50:05.263Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "launchSettings.json",
-              "DocumentMoniker": "D:\\vid\\github\\CLAIMS-INSURANCE-ANG-DOTNET\\CLAIMS-INSURANCE-ANG-DOTNET\\ClaimsAPI\\ClaimsAPI\\Properties\\launchSettings.json",
-              "RelativeDocumentMoniker": "ClaimsAPI\\Properties\\launchSettings.json",
-              "ToolTip": "D:\\vid\\github\\CLAIMS-INSURANCE-ANG-DOTNET\\CLAIMS-INSURANCE-ANG-DOTNET\\ClaimsAPI\\ClaimsAPI\\Properties\\launchSettings.json",
-              "RelativeToolTip": "ClaimsAPI\\Properties\\launchSettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-06-28T17:50:13.899Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ClaimsController.cs",
-              "DocumentMoniker": "D:\\vid\\github\\CLAIMS-INSURANCE-ANG-DOTNET\\CLAIMS-INSURANCE-ANG-DOTNET\\ClaimsAPI\\ClaimsAPI\\Controllers\\ClaimsController.cs",
-              "RelativeDocumentMoniker": "ClaimsAPI\\Controllers\\ClaimsController.cs",
-              "ToolTip": "D:\\vid\\github\\CLAIMS-INSURANCE-ANG-DOTNET\\CLAIMS-INSURANCE-ANG-DOTNET\\ClaimsAPI\\ClaimsAPI\\Controllers\\ClaimsController.cs",
-              "RelativeToolTip": "ClaimsAPI\\Controllers\\ClaimsController.cs",
-              "ViewState": "AgIAADYAAAAAAAAAAADwv1MAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-28T17:57:11.517Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ClaimModel.cs",
-              "DocumentMoniker": "D:\\vid\\github\\CLAIMS-INSURANCE-ANG-DOTNET\\CLAIMS-INSURANCE-ANG-DOTNET\\ClaimsAPI\\ClaimsAPI\\Model\\ClaimModel.cs",
-              "RelativeDocumentMoniker": "ClaimsAPI\\Model\\ClaimModel.cs",
-              "ToolTip": "D:\\vid\\github\\CLAIMS-INSURANCE-ANG-DOTNET\\CLAIMS-INSURANCE-ANG-DOTNET\\ClaimsAPI\\ClaimsAPI\\Model\\ClaimModel.cs",
-              "RelativeToolTip": "ClaimsAPI\\Model\\ClaimModel.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAzwBcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-28T17:54:30.097Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "AuthController.cs",
-              "DocumentMoniker": "D:\\vid\\github\\CLAIMS-INSURANCE-ANG-DOTNET\\CLAIMS-INSURANCE-ANG-DOTNET\\ClaimsAPI\\ClaimsAPI\\Controllers\\AuthController.cs",
-              "RelativeDocumentMoniker": "ClaimsAPI\\Controllers\\AuthController.cs",
-              "ToolTip": "D:\\vid\\github\\CLAIMS-INSURANCE-ANG-DOTNET\\CLAIMS-INSURANCE-ANG-DOTNET\\ClaimsAPI\\ClaimsAPI\\Controllers\\AuthController.cs",
-              "RelativeToolTip": "ClaimsAPI\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAABYAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-28T17:52:19.81Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "AppDbContext.cs",
-              "DocumentMoniker": "D:\\vid\\github\\CLAIMS-INSURANCE-ANG-DOTNET\\CLAIMS-INSURANCE-ANG-DOTNET\\ClaimsAPI\\ClaimsAPI\\DbContext\\AppDbContext.cs",
-              "RelativeDocumentMoniker": "ClaimsAPI\\DbContext\\AppDbContext.cs",
-              "ToolTip": "D:\\vid\\github\\CLAIMS-INSURANCE-ANG-DOTNET\\CLAIMS-INSURANCE-ANG-DOTNET\\ClaimsAPI\\ClaimsAPI\\DbContext\\AppDbContext.cs",
-              "RelativeToolTip": "ClaimsAPI\\DbContext\\AppDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAABWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-28T17:55:14.817Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "User.cs",
-              "DocumentMoniker": "D:\\vid\\github\\CLAIMS-INSURANCE-ANG-DOTNET\\CLAIMS-INSURANCE-ANG-DOTNET\\ClaimsAPI\\ClaimsAPI\\Login\\User.cs",
-              "RelativeDocumentMoniker": "ClaimsAPI\\Login\\User.cs",
-              "ToolTip": "D:\\vid\\github\\CLAIMS-INSURANCE-ANG-DOTNET\\CLAIMS-INSURANCE-ANG-DOTNET\\ClaimsAPI\\ClaimsAPI\\Login\\User.cs",
-              "RelativeToolTip": "ClaimsAPI\\Login\\User.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-28T17:51:07.112Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
               "Title": "LoginRequest.cs",
               "DocumentMoniker": "D:\\vid\\github\\CLAIMS-INSURANCE-ANG-DOTNET\\CLAIMS-INSURANCE-ANG-DOTNET\\ClaimsAPI\\ClaimsAPI\\Login\\LoginRequest.cs",
               "RelativeDocumentMoniker": "ClaimsAPI\\Login\\LoginRequest.cs",
               "ToolTip": "D:\\vid\\github\\CLAIMS-INSURANCE-ANG-DOTNET\\CLAIMS-INSURANCE-ANG-DOTNET\\ClaimsAPI\\ClaimsAPI\\Login\\LoginRequest.cs",
               "RelativeToolTip": "ClaimsAPI\\Login\\LoginRequest.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAdAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-28T17:51:32.27Z"
+              "WhenOpened": "2025-10-31T09:44:13.163Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 0,
+              "Title": "ClaimsController.cs",
+              "DocumentMoniker": "D:\\vid\\github\\CLAIMS-INSURANCE-ANG-DOTNET\\CLAIMS-INSURANCE-ANG-DOTNET\\ClaimsAPI\\ClaimsAPI\\Controllers\\ClaimsController.cs",
+              "RelativeDocumentMoniker": "ClaimsAPI\\Controllers\\ClaimsController.cs",
+              "ToolTip": "D:\\vid\\github\\CLAIMS-INSURANCE-ANG-DOTNET\\CLAIMS-INSURANCE-ANG-DOTNET\\ClaimsAPI\\ClaimsAPI\\Controllers\\ClaimsController.cs",
+              "RelativeToolTip": "ClaimsAPI\\Controllers\\ClaimsController.cs",
+              "ViewState": "AgIAAJkAAAAAAAAAAAApwKYAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-31T07:57:12.95Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ClaimModel.cs",
+              "DocumentMoniker": "D:\\vid\\github\\CLAIMS-INSURANCE-ANG-DOTNET\\CLAIMS-INSURANCE-ANG-DOTNET\\ClaimsAPI\\ClaimsAPI\\Model\\ClaimModel.cs",
+              "RelativeDocumentMoniker": "ClaimsAPI\\Model\\ClaimModel.cs",
+              "ToolTip": "D:\\vid\\github\\CLAIMS-INSURANCE-ANG-DOTNET\\CLAIMS-INSURANCE-ANG-DOTNET\\ClaimsAPI\\ClaimsAPI\\Model\\ClaimModel.cs",
+              "RelativeToolTip": "ClaimsAPI\\Model\\ClaimModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-31T07:56:19.309Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\vid\\github\\CLAIMS-INSURANCE-ANG-DOTNET\\CLAIMS-INSURANCE-ANG-DOTNET\\ClaimsAPI\\ClaimsAPI\\Program.cs",
+              "RelativeDocumentMoniker": "ClaimsAPI\\Program.cs",
+              "ToolTip": "D:\\vid\\github\\CLAIMS-INSURANCE-ANG-DOTNET\\CLAIMS-INSURANCE-ANG-DOTNET\\ClaimsAPI\\ClaimsAPI\\Program.cs",
+              "RelativeToolTip": "ClaimsAPI\\Program.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAAAAACkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-31T08:00:41.555Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "TokenService.cs",
+              "DocumentMoniker": "D:\\vid\\github\\CLAIMS-INSURANCE-ANG-DOTNET\\CLAIMS-INSURANCE-ANG-DOTNET\\ClaimsAPI\\ClaimsAPI\\Services\\TokenService.cs",
+              "RelativeDocumentMoniker": "ClaimsAPI\\Services\\TokenService.cs",
+              "ToolTip": "D:\\vid\\github\\CLAIMS-INSURANCE-ANG-DOTNET\\CLAIMS-INSURANCE-ANG-DOTNET\\ClaimsAPI\\ClaimsAPI\\Services\\TokenService.cs",
+              "RelativeToolTip": "ClaimsAPI\\Services\\TokenService.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAA3wCoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-31T08:00:27.932Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "D:\\vid\\github\\CLAIMS-INSURANCE-ANG-DOTNET\\CLAIMS-INSURANCE-ANG-DOTNET\\ClaimsAPI\\ClaimsAPI\\DbContext\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "ClaimsAPI\\DbContext\\AppDbContext.cs",
+              "ToolTip": "D:\\vid\\github\\CLAIMS-INSURANCE-ANG-DOTNET\\CLAIMS-INSURANCE-ANG-DOTNET\\ClaimsAPI\\ClaimsAPI\\DbContext\\AppDbContext.cs",
+              "RelativeToolTip": "ClaimsAPI\\DbContext\\AppDbContext.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAkwCIAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-31T07:54:47.925Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "D:\\vid\\github\\CLAIMS-INSURANCE-ANG-DOTNET\\CLAIMS-INSURANCE-ANG-DOTNET\\ClaimsAPI\\ClaimsAPI\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "ClaimsAPI\\Controllers\\AuthController.cs",
+              "ToolTip": "D:\\vid\\github\\CLAIMS-INSURANCE-ANG-DOTNET\\CLAIMS-INSURANCE-ANG-DOTNET\\ClaimsAPI\\ClaimsAPI\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "ClaimsAPI\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-31T07:57:05.171Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "UserModel.cs",
+              "DocumentMoniker": "D:\\vid\\github\\CLAIMS-INSURANCE-ANG-DOTNET\\CLAIMS-INSURANCE-ANG-DOTNET\\ClaimsAPI\\ClaimsAPI\\Model\\UserModel.cs",
+              "RelativeDocumentMoniker": "ClaimsAPI\\Model\\UserModel.cs",
+              "ToolTip": "D:\\vid\\github\\CLAIMS-INSURANCE-ANG-DOTNET\\CLAIMS-INSURANCE-ANG-DOTNET\\ClaimsAPI\\ClaimsAPI\\Model\\UserModel.cs",
+              "RelativeToolTip": "ClaimsAPI\\Model\\UserModel.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAqwCIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-31T07:56:49.755Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "ClaimsAPI.csproj",
               "DocumentMoniker": "D:\\vid\\github\\CLAIMS-INSURANCE-ANG-DOTNET\\CLAIMS-INSURANCE-ANG-DOTNET\\ClaimsAPI\\ClaimsAPI\\ClaimsAPI.csproj",
               "RelativeDocumentMoniker": "ClaimsAPI\\ClaimsAPI.csproj",
               "ToolTip": "D:\\vid\\github\\CLAIMS-INSURANCE-ANG-DOTNET\\CLAIMS-INSURANCE-ANG-DOTNET\\ClaimsAPI\\ClaimsAPI\\ClaimsAPI.csproj",
               "RelativeToolTip": "ClaimsAPI\\ClaimsAPI.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-06-28T17:50:46.314Z"
+              "WhenOpened": "2025-10-31T07:58:56.486Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ITokenService.cs",
+              "DocumentMoniker": "D:\\vid\\github\\CLAIMS-INSURANCE-ANG-DOTNET\\CLAIMS-INSURANCE-ANG-DOTNET\\ClaimsAPI\\ClaimsAPI\\Services\\ITokenService.cs",
+              "RelativeDocumentMoniker": "ClaimsAPI\\Services\\ITokenService.cs",
+              "ToolTip": "D:\\vid\\github\\CLAIMS-INSURANCE-ANG-DOTNET\\CLAIMS-INSURANCE-ANG-DOTNET\\ClaimsAPI\\ClaimsAPI\\Services\\ITokenService.cs",
+              "RelativeToolTip": "ClaimsAPI\\Services\\ITokenService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-31T08:00:09.525Z"
             }
           ]
         }

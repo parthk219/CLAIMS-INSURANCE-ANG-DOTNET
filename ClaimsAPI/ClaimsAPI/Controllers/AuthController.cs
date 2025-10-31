@@ -1,63 +1,139 @@
-using ClaimsAPI.Login;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.IdentityModel.Tokens;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
+using Microsoft.EntityFrameworkCore;
+using ClaimsAPI.Models;
+using ClaimsAPI.Data;
+using ClaimsAPI.Services;
 
 namespace ClaimsAPI.Controllers
 {
     [ApiController]
-    [Route("auth")]
+    [Route("[controller]")]
     public class AuthController : ControllerBase
     {
-        private readonly IConfiguration _configuration;
+        private readonly AppDbContext _context;
+        private readonly ITokenService _tokenService;
 
-        public AuthController(IConfiguration configuration)
+        public AuthController(AppDbContext context, ITokenService tokenService)
         {
-            _configuration = configuration;
+            _context = context;
+            _tokenService = tokenService;
         }
 
         [HttpPost("login")]
-        public IActionResult Login([FromBody] LoginRequest request)
+        public async Task<IActionResult> Login([FromBody] LoginRequest request)
         {
-            // In production, validate against database
-            if (request.Email == "test@example.com" && request.Password == "password")
+            if (string.IsNullOrEmpty(request.Email))
+                return BadRequest(new { success = false, message = "Email is required" });
+
+            try
             {
-                var token = GenerateJwtToken(request.Email);
+                // Find or create user
+                var user = await _context.Users.FindAsync(request.Email);
+                if (user == null)
+                {
+                    user = new UserModel
+                    {
+                        Email = request.Email,
+                        FullName = request.Name ?? "Angular User",
+                        CreatedDate = DateTime.UtcNow,
+                        LastLogin = DateTime.UtcNow,
+                        TotalClaimsSubmitted = 0
+                    };
+                    _context.Users.Add(user);
+                }
+                else
+                {
+                    user.LastLogin = DateTime.UtcNow;
+                    user.FullName = request.Name ?? user.FullName;
+                }
+
+                await _context.SaveChangesAsync();
+
+                // Generate token
+                var token = _tokenService.GenerateJwtToken(user.Email, user.FullName);
+
+                // Get user's claims count
+                var claimsCount = await _context.Claims.CountAsync(c => c.Email == user.Email);
+
+                // Return response in Angular-expected format
+                return Ok(new
+                {
+                    success = true,
+                    token = token,
+                    email = user.Email,
+                    name = user.FullName,
+                    claimsSubmitted = claimsCount,
+                    user = new
+                    {
+                        email = user.Email,
+                        fullName = user.FullName,
+                        totalClaimsSubmitted = user.TotalClaimsSubmitted
+                    },
+                    message = "Login successful"
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new
+                {
+                    success = false,
+                    message = $"Login error: {ex.Message}"
+                });
+            }
+        }
+
+        [HttpPost("register")]
+        public async Task<IActionResult> Register([FromBody] LoginRequest request)
+        {
+            if (string.IsNullOrEmpty(request.Email))
+                return BadRequest(new { success = false, message = "Email is required" });
+
+            try
+            {
+                var existingUser = await _context.Users.FindAsync(request.Email);
+                if (existingUser != null)
+                {
+                    return BadRequest(new { success = false, message = "User already exists" });
+                }
+
+                var user = new UserModel
+                {
+                    Email = request.Email,
+                    FullName = request.Name ?? "Angular User",
+                    CreatedDate = DateTime.UtcNow,
+                    LastLogin = DateTime.UtcNow,
+                    TotalClaimsSubmitted = 0
+                };
+
+                _context.Users.Add(user);
+                await _context.SaveChangesAsync();
+
+                var token = _tokenService.GenerateJwtToken(user.Email, user.FullName);
 
                 return Ok(new
                 {
-                    Token = token,
-                    Email = request.Email,
-                    ExpiresIn = 3600 // 1 hour in seconds
+                    success = true,
+                    token = token,
+                    email = user.Email,
+                    name = user.FullName,
+                    claimsSubmitted = 0,
+                    user = new
+                    {
+                        email = user.Email,
+                        fullName = user.FullName,
+                        totalClaimsSubmitted = 0
+                    },
+                    message = "Registration successful"
                 });
             }
-
-            return Unauthorized(new { Message = "Invalid credentials" });
-        }
-
-        private string GenerateJwtToken(string email)
-        {
-            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(
-                _configuration["Jwt:Key"]));
-            var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
-
-            var claims = new[]
+            catch (Exception ex)
             {
-                new Claim(JwtRegisteredClaimNames.Sub, email),
-                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                new Claim(JwtRegisteredClaimNames.Email, email)
-            };
-
-            var token = new JwtSecurityToken(
-                issuer: _configuration["Jwt:Issuer"],
-                audience: _configuration["Jwt:Issuer"],
-                claims: claims,
-                expires: DateTime.UtcNow.AddHours(1),
-                signingCredentials: credentials);
-
-            return new JwtSecurityTokenHandler().WriteToken(token);
+                return StatusCode(500, new
+                {
+                    success = false,
+                    message = $"Registration error: {ex.Message}"
+                });
+            }
         }
     }
 }

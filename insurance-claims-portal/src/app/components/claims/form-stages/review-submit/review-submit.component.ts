@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { AuthService } from '../../../../services/auth.service';
 
 @Component({
   selector: 'app-review-submit',
@@ -14,12 +15,21 @@ export class ReviewSubmitComponent {
   @Output() back = new EventEmitter<void>();
   @Output() submitClaim = new EventEmitter<void>();
 
+  userEmail: string | null = null; // ✅ holds logged-in user's email
+
+  constructor(private authService: AuthService) {}
+
+  ngOnInit() {
+    // ✅ Try to get email from AuthService or localStorage
+    const user = this.authService.getCurrentUser();
+    this.userEmail = user?.email || localStorage.getItem('userEmail');
+  }
+
   goBack() {
     this.back.emit();
   }
 
   submit() {
-    alert('Claim submitted successfully!');
-    this.submitClaim.emit();
+    this.submitClaim.emit(); // ✅ let parent handle API call
   }
 }
